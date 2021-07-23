@@ -1,6 +1,11 @@
 package Task;
 
 import java.util.List;
+import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 /**
  Write a program that will read a string containing numbers from the keyboard, each number is separated by comma ","
@@ -21,20 +26,34 @@ import java.util.List;
 public class Task1 {
     public List<Integer> readData() {
         //write your code here
-
-        return null;
+        try {
+            Scanner reader = new Scanner(new InputStreamReader(System.in));
+            System.out.println("Nhập vào chuỗi chữ số: ");
+            String line = reader.nextLine();
+            List<Integer> numbers = new ArrayList<>();
+            String[] words = line.replaceAll("\\s+", "").split(",")
+            for (String word : words) {
+                numbers.add(Integer.parseInt(word));
+            }
+            return numbers;
+        } catch (Exception e) {
+            System.out.println("Có lỗi khi đọc data: " + e.getMessage());
+            return new ArrayList<>();
+        }
     }
-
-    public List<Integer> sortNumberList(List<Integer> list){
+    public List<Integer> sortNumberList(List<Integer> list) {
         //write your code here
-
-        return null;
-
+        list.sort(Collections.reverseOrder());
+        return list;
     }
-
     public static void main(String[] args) {
         //write your code here
-
+        Task1 task = new Task1();
+        List<Integer> numbers = task.readData();
+        if (!numbers.isEmpty()) {
+            List<Integer> sortedList = task.sortNumberList(numbers);
+            System.out.println("Sắp xếp: " + sortedList);
+        }
     }
 }
 
