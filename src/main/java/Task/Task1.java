@@ -28,16 +28,17 @@ public class Task1 {
         //write your code here
         try {
             Scanner reader = new Scanner(new InputStreamReader(System.in));
-            System.out.println("Nhập vào chuỗi chữ số: ");
+            System.out.println("Nhap vao chuoi chu so: ");
             String line = reader.nextLine();
             List<Integer> numbers = new ArrayList<>();
-            String[] words = line.replaceAll("\\s+", "").split(",")
-            for (String word : words) {
-                numbers.add(Integer.parseInt(word));
+            String[] strNumbers = line.replaceAll("\\s+", "").split(",");
+            for (String strNumber : strNumbers) {
+                numbers.add(Integer.parseInt(strNumber));
             }
+            reader.close();
             return numbers;
         } catch (Exception e) {
-            System.out.println("Có lỗi khi đọc data: " + e.getMessage());
+            System.out.println("Co loi khi doc data: " + e.getMessage());
             return new ArrayList<>();
         }
     }
@@ -52,7 +53,7 @@ public class Task1 {
         List<Integer> numbers = task.readData();
         if (!numbers.isEmpty()) {
             List<Integer> sortedList = task.sortNumberList(numbers);
-            System.out.println("Sắp xếp: " + sortedList);
+            System.out.println("Sap xep giam dan: " + sortedList);
         }
     }
 }

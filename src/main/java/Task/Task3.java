@@ -24,20 +24,21 @@ import java.util.stream.Stream;
  * •The main method displays the result to screen.
  */
 public class Task3 {
-    public String readString() throws IOException {
+    public String readString() {
         //write your code here
         Scanner reader = new Scanner(new InputStreamReader(System.in));
         System.out.println("Nhap vao chuoi: ");
+        reader.close();
         return reader.nextLine();
     }
     public String upperCaseString(String s) {
         //write your code here
         return Stream.of(s.trim().split("\\s"))
-                .filter(word -> word.length() > 0)
-                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1))
+                .filter(String -> String.length() > 0)
+                .map(String -> String.substring(0, 1).toUpperCase() + String.substring(1))
                 .collect(Collectors.joining(" "));
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //write your code here
         Task3 task = new Task3();
         String str = task.readString();

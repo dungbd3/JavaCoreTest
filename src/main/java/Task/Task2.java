@@ -53,7 +53,7 @@ public class Task2 {
     public void printCats(Set<Cat> cats) {
         //write your code here
         for (Cat c : cats) {
-            System.out.println("Cat name: " + c.getName() + " ,Cat age: " + c.getAge());
+            System.out.println("Tên của Mèo: " + c.getName() + " ,Tuoi của Mèo: " + c.getAge());
         }
     }
     public class Cat {
